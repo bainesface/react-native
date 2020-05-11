@@ -10,18 +10,11 @@ const reducer = (state, action) => {
 
   switch (action.colorToChange) {
     case 'red':
-      return state.red + action.amount > 255 || state.red + action.amount < 0
-        ? state
-        : { ...state, red: state.red + action.amount };
+      return { ...state, red: state.red + action.amount };
     case 'blue':
-      return state.blue + action.amount > 255 || state.blue + action.amount < 0
-        ? state
-        : { ...state, blue: state.blue + action.amount };
+      return { ...state, blue: state.blue + action.amount };
     case 'green':
-      return state.green + action.amount > 255 ||
-        state.green + action.amount < 0
-        ? state
-        : { ...state, green: state.green + action.amount };
+      return { ...state, green: state.green + action.amount };
     default:
       return state;
   }
@@ -29,7 +22,6 @@ const reducer = (state, action) => {
 
 const SquareScreen = () => {
   const [state, dispatch] = useReducer(reducer, { red: 0, blue: 0, green: 0 });
-  const { red, green, blue } = state;
 
   return (
     <View>
@@ -38,7 +30,7 @@ const SquareScreen = () => {
           dispatch({ colorToChange: 'red', amount: COLOR_INCREMENT })
         }
         onDecrease={() =>
-          dispatch({ colorToChange: 'red', amount: -1 * COLOR_INCREMENT })
+          dispatch({ colorToChange: 'red', amount: -COLOR_INCREMENT })
         }
         color="Red"
       />
@@ -47,7 +39,7 @@ const SquareScreen = () => {
           dispatch({ colorToChange: 'blue', amount: COLOR_INCREMENT })
         }
         onDecrease={() =>
-          dispatch({ colorToChange: 'blue', amount: -1 * COLOR_INCREMENT })
+          dispatch({ colorToChange: 'blue', amount: -COLOR_INCREMENT })
         }
         color="Blue"
       />
@@ -56,7 +48,7 @@ const SquareScreen = () => {
           dispatch({ colorToChange: 'green', amount: COLOR_INCREMENT })
         }
         onDecrease={() =>
-          dispatch({ colorToChange: 'green', amount: -1 * COLOR_INCREMENT })
+          dispatch({ colorToChange: 'green', amount: -COLOR_INCREMENT })
         }
         color="Green"
       />
