@@ -8,17 +8,17 @@ const reducer = (state, action) => {
   //state === {red: number, blue: number, green: number}
   //action === {type: 'change_red'||'change_green'||'change_blue, payload: 15 || -15}
 
-  switch (action.type) {
-    case 'change_red':
+  switch (action.colorToChange) {
+    case 'red':
       return state.red + action.payload > 255 || state.red + action.payload < 0
         ? state
         : { ...state, red: state.red + action.payload };
-    case 'change_blue':
+    case 'blue':
       return state.blue + action.payload > 255 ||
         state.blue + action.payload < 0
         ? state
         : { ...state, blue: state.blue + action.payload };
-    case 'change_green':
+    case 'green':
       return state.green + action.payload > 255 ||
         state.green + action.payload < 0
         ? state
