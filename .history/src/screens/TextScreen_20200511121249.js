@@ -16,7 +16,7 @@ const TextScreen = () => {
           setPassword(e);
         }}
       />
-      {password.length < 5 && (
+      {password < 5 && (
         <Text>Password must contain at least five characters</Text>
       )}
     </View>

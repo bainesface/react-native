@@ -11,14 +11,12 @@ const TextScreen = () => {
         style={styles.input}
         autoCapitalize="none"
         autoCorrect={false}
-        value={password}
+        value={name}
         onChangeText={(e) => {
-          setPassword(e);
+          setName(e);
         }}
       />
-      {password.length < 5 && (
-        <Text>Password must contain at least five characters</Text>
-      )}
+      <Text>My name is {name}</Text>
     </View>
   );
 };
