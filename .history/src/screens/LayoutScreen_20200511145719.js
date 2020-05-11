@@ -14,7 +14,7 @@ const LayoutScreen = () => {
 const styles = StyleSheet.create({
   viewStyle: {
     margin: 20,
-    height: 200,
+    //height: 200,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     height: 100,
     width: 100,
     backgroundColor: 'blue',
-    //alignSelf: 'flex-end',
+    // alignSelf: 'flex-end',
     top: 100,
   },
   boxThreeStyle: {
